@@ -12,6 +12,7 @@
 		FA6323AF264C0EA800E2A39B /* TaskListCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA6323AD264C0EA800E2A39B /* TaskListCoreData.xcdatamodeld */; };
 		FA6323B1264C0EA900E2A39B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6323B0264C0EA900E2A39B /* Assets.xcassets */; };
 		FA6323B4264C0EA900E2A39B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6323B2264C0EA900E2A39B /* LaunchScreen.storyboard */; };
+		FA6323BC264C311B00E2A39B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6323BB264C311B00E2A39B /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		FA6323B0264C0EA900E2A39B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA6323B3264C0EA900E2A39B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA6323B5264C0EA900E2A39B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA6323BB264C311B00E2A39B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				FA6323B2264C0EA900E2A39B /* LaunchScreen.storyboard */,
 				FA6323B5264C0EA900E2A39B /* Info.plist */,
 				FA6323AD264C0EA800E2A39B /* TaskListCoreData.xcdatamodeld */,
+				FA6323BB264C311B00E2A39B /* StorageManager.swift */,
 			);
 			path = TaskListCoreData;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 				FA6323A9264C0EA800E2A39B /* TaskListViewController.swift in Sources */,
 				FA6323A5264C0EA800E2A39B /* AppDelegate.swift in Sources */,
 				FA6323AF264C0EA800E2A39B /* TaskListCoreData.xcdatamodeld in Sources */,
+				FA6323BC264C311B00E2A39B /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

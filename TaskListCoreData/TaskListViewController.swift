@@ -16,9 +16,12 @@ class TaskListViewController: UITableViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         setupNavigationBar()
-        
-    }
+        StorageManager.shared.fetchData { taskLists in
+            self.taskList = taskLists
+        }
+}
 
     // MARK: - Privare Methods
     
@@ -50,6 +53,15 @@ class TaskListViewController: UITableViewController {
     
     @objc private func addNewTask(){
         showAlert(with: "New Task", and: "What do you want to do?")
+        
+    }
+    
+    private func save(taskName: String) {
+        StorageManager.shared.save(taskName: taskName) { newTask in
+            self.taskList.append(newTask)
+            let cellIndex = IndexPath(row: self.taskList.count - 1, section: 0)
+            self.tableView.insertRows(at: [cellIndex], with: .automatic)
+        }
     }
     
     private func showAlert(with title: String, and message: String) {
@@ -57,7 +69,7 @@ class TaskListViewController: UITableViewController {
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
-            //self.save
+            self.save(taskName: task)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)

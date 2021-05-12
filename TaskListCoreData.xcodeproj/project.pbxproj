@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA6323A5264C0EA800E2A39B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6323A4264C0EA800E2A39B /* AppDelegate.swift */; };
-		FA6323A7264C0EA800E2A39B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6323A6264C0EA800E2A39B /* SceneDelegate.swift */; };
-		FA6323A9264C0EA800E2A39B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6323A8264C0EA800E2A39B /* ViewController.swift */; };
-		FA6323AC264C0EA800E2A39B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6323AA264C0EA800E2A39B /* Main.storyboard */; };
+		FA6323A9264C0EA800E2A39B /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6323A8264C0EA800E2A39B /* TaskListViewController.swift */; };
 		FA6323AF264C0EA800E2A39B /* TaskListCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA6323AD264C0EA800E2A39B /* TaskListCoreData.xcdatamodeld */; };
 		FA6323B1264C0EA900E2A39B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6323B0264C0EA900E2A39B /* Assets.xcassets */; };
 		FA6323B4264C0EA900E2A39B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6323B2264C0EA900E2A39B /* LaunchScreen.storyboard */; };
@@ -19,9 +17,7 @@
 /* Begin PBXFileReference section */
 		FA6323A1264C0EA800E2A39B /* TaskListCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskListCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6323A4264C0EA800E2A39B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA6323A6264C0EA800E2A39B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA6323A8264C0EA800E2A39B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA6323AB264C0EA800E2A39B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA6323A8264C0EA800E2A39B /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		FA6323AE264C0EA800E2A39B /* TaskListCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskListCoreData.xcdatamodel; sourceTree = "<group>"; };
 		FA6323B0264C0EA900E2A39B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA6323B3264C0EA900E2A39B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,9 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6323A4264C0EA800E2A39B /* AppDelegate.swift */,
-				FA6323A6264C0EA800E2A39B /* SceneDelegate.swift */,
-				FA6323A8264C0EA800E2A39B /* ViewController.swift */,
-				FA6323AA264C0EA800E2A39B /* Main.storyboard */,
+				FA6323A8264C0EA800E2A39B /* TaskListViewController.swift */,
 				FA6323B0264C0EA900E2A39B /* Assets.xcassets */,
 				FA6323B2264C0EA900E2A39B /* LaunchScreen.storyboard */,
 				FA6323B5264C0EA900E2A39B /* Info.plist */,
@@ -129,7 +123,6 @@
 			files = (
 				FA6323B4264C0EA900E2A39B /* LaunchScreen.storyboard in Resources */,
 				FA6323B1264C0EA900E2A39B /* Assets.xcassets in Resources */,
-				FA6323AC264C0EA800E2A39B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6323A9264C0EA800E2A39B /* ViewController.swift in Sources */,
+				FA6323A9264C0EA800E2A39B /* TaskListViewController.swift in Sources */,
 				FA6323A5264C0EA800E2A39B /* AppDelegate.swift in Sources */,
-				FA6323A7264C0EA800E2A39B /* SceneDelegate.swift in Sources */,
 				FA6323AF264C0EA800E2A39B /* TaskListCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,14 +142,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA6323AA264C0EA800E2A39B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA6323AB264C0EA800E2A39B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA6323B2264C0EA900E2A39B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

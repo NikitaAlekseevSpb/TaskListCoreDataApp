@@ -7,14 +7,14 @@
 
 import Foundation
 import CoreData
-
+// т.д Task это и есть база данных поэтому при обращении к экз этого типа идет обращение к базе
 class StorageManager {
     
     static let shared = StorageManager()
     
-    private init(){}
-    
-    var persistentContainer: NSPersistentContainer = {
+    // MARK: - Core Data stack
+
+    private let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TaskListCoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -23,45 +23,59 @@ class StorageManager {
         })
         return container
     }()
-
+    //  созд свойство что бы не писать каждый раз persistentContainer.viewContext
+    let viewContext: NSManagedObjectContext
+    
+    private init(){
+        viewContext = persistentContainer.viewContext
+    }
+    
+    // MARK: - Public Methods
+// можно использовать вход пар с резалт что бы плучить инфу об ошибке
+    func fetchData(complition:@escaping([Task]) -> Void) {
+       let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+       
+       do {
+          let taskList = try viewContext.fetch(fetchRequest)
+           complition(taskList)
+       } catch let error {
+           print(error)
+       }
+     
+   }
+    
+     func save(taskName: String, completion: @escaping(Task) -> Void){
+        // созд экз модели (это упращ варик NSEntityDescription.entity(forEntityName: "Task", in: context) else { return })
+        let task = Task(context: viewContext)
+        // уст знач в экз модели
+        task.title = taskName
+        completion(task)
+        
+        saveContext()
+    }
+    
+    func editing(task: Task, newName: String) {
+        // обращение к определенной ячейке базы которая передана как вход парам
+        task.title = newName
+        saveContext()
+}
+    
+    func deleteContact(task: Task) {
+        viewContext.delete(task)
+        saveContext()
+}
+    
+    
+    
+    // MARK: - Core Data Saving support
     func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
+        if viewContext.hasChanges {
             do {
-                try context.save()
+                try viewContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
-    }
-    
-     func fetchData(complition:@escaping([Task]) -> Void) {
-        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        do {
-           let taskList = try persistentContainer.viewContext.fetch(fetchRequest)
-            complition(taskList)
-        } catch let error {
-            print(error)
-        }
-      
-    }
-    
-     func save(taskName: String, completion: @escaping(Task) -> Void){
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: persistentContainer.viewContext) else { return }
-        guard let task = NSManagedObject(entity: entityDescription, insertInto: persistentContainer.viewContext) as? Task else { return }
-        task.title = taskName
-        completion(task)
-        
-        
-        if persistentContainer.viewContext.hasChanges {
-            do {
-                try persistentContainer.viewContext.save()
-            } catch let error {
-                print(error.localizedDescription)
-            }
-     
-     }
     }
 }

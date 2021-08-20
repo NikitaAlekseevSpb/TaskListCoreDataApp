@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreData
-// т.д Task это и есть база данных поэтому при обращении к экз этого типа идет обращение к базе
+
 class StorageManager {
     
     static let shared = StorageManager()
@@ -23,7 +23,6 @@ class StorageManager {
         })
         return container
     }()
-    //  созд свойство что бы не писать каждый раз persistentContainer.viewContext
     let viewContext: NSManagedObjectContext
     
     private init(){
@@ -31,7 +30,6 @@ class StorageManager {
     }
     
     // MARK: - Public Methods
-// можно использовать вход пар с резалт что бы плучить инфу об ошибке
     func fetchData(complition:@escaping([Task]) -> Void) {
        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
        
@@ -45,9 +43,7 @@ class StorageManager {
    }
     
      func save(taskName: String, completion: @escaping(Task) -> Void){
-        // созд экз модели (это упращ варик NSEntityDescription.entity(forEntityName: "Task", in: context) else { return })
         let task = Task(context: viewContext)
-        // уст знач в экз модели
         task.title = taskName
         completion(task)
         
@@ -55,7 +51,6 @@ class StorageManager {
     }
     
     func editing(task: Task, newName: String) {
-        // обращение к определенной ячейке базы которая передана как вход парам
         task.title = newName
         saveContext()
 }

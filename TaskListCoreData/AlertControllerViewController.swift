@@ -8,8 +8,6 @@
 import UIKit
 // класс для настройки аллерта
 class AlertController: UIAlertController {
-    // метод для кнопки алерта
-    // вощзвращ знач если оно есть в текстовом поле
     func action(task: Task?, completion: @escaping (String) -> Void) {
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let newValue = self.textFields?.first?.text else { return }
